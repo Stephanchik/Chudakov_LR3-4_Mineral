@@ -1,24 +1,44 @@
 #include "Chudakov_LR3-4_ClassMineral.h"
 #include <numeric>
 
+// Конструкторы
+Mineral::Mineral() : name("Unknown"), density(0.0), hardness_list() {}
+
+Mineral::Mineral(const std::string& n, double d, const std::vector<double>& h)
+    : name(n), density(d), hardness_list(h) {}
+
+Mineral::Mineral(const Mineral& other)
+    : name(other.name), density(other.density), hardness_list(other.hardness_list) {}
+
+Mineral::Mineral(const char* n) : name(n), density(0.0), hardness_list() {}
+
+Mineral::Mineral(const std::string& n, double d) : Mineral(n, d, {}) {}
+
+// Методы get
+std::string Mineral::getName() const { return name; }
+double Mineral::getDensity() const { return density; }
+std::vector<double> Mineral::getHardnessList() const { return hardness_list; }
+
+// Методы set
+void Mineral::setName(const std::string& n) { name = n; }
+void Mineral::setDensity(double d) { density = d; }
+void Mineral::setHardnessList(const std::vector<double>& h) { hardness_list = h; }
+
+// Средняя твердость
 double Mineral::calculateAverageHardness() const {
     if (hardness_list.empty()) return 0.0;
-    double sum = std::accumulate(hardness_list.begin(), hardness_list.end(), 0.0);
-    return sum / hardness_list.size();
+    return std::accumulate(hardness_list.begin(), hardness_list.end(), 0.0) / hardness_list.size();
 }
 
+// Операторы
 bool Mineral::operator==(const Mineral& other) const {
-    return calculateAverageHardness() == other.calculateAverageHardness();
+    return (calculateAverageHardness() == other.calculateAverageHardness());
 }
 
 Mineral Mineral::operator+(const Mineral& other) const {
-    std::string new_name = name + "_" + other.name;
-    double new_density = (density + other.density) / 2;
-    std::vector<double> new_hardness;
-    new_hardness.reserve(hardness_list.size() + other.hardness_list.size());
-    new_hardness.insert(new_hardness.end(), hardness_list.begin(), hardness_list.end());
-    new_hardness.insert(new_hardness.end(), other.hardness_list.begin(), other.hardness_list.end());
-    return Mineral(new_name, new_density, new_hardness);
+    std::vector<double> combined_hardness = hardness_list;
+    combined_hardness.insert(combined_hardness.end(), other.hardness_list.begin(), other.hardness_list.end());
+    return Mineral(name + "+" + other.name, (density + other.density) / 2, combined_hardness);
 }
 
 Mineral& Mineral::operator=(const Mineral& other) {
@@ -31,7 +51,7 @@ Mineral& Mineral::operator=(const Mineral& other) {
 }
 
 Mineral& Mineral::operator++() {
-    density += 1.0; // Увеличиваем плотность
+    density += 1.0;
     return *this;
 }
 
