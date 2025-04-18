@@ -3,27 +3,28 @@
 
 std::vector<Mineral> minerals;
 
-void createDefaultMineral() {
-    Mineral m;
+void createDefaultMinercal() {
     std::string m_name;
     double m_density;
     std::vector<double> m_hardness;
+
     std::cout << "Input the name of the mineral: " << std::endl;
     std::getline(std::cin, m_name);
-    m.setName(m_name);
+    
     std::cout << "Input the density of the mineral: " << std::endl;
     std::cin >> m_density;
-    m.setDensity(m_density);
+    
     std::cout << "Input the hardness list of the mineral: " << std::endl;
-    for (int start = 0; start != 3; start++) {
+    for (int start = 0; start < 3; start++) {
         double hardness = 0.0;
         std::cout << "Input the hardness of the mineral: " << std::endl;
         std::cin >> hardness;
         m_hardness.push_back(hardness);
     }
-    m.setHardnessList(m_hardness);
-
+    
+    Mineral m(m_name, m_density, m_hardness);
     minerals.push_back(m);
+
     std::cout << "Created default mineral: " << m << std::endl;
 }
 
