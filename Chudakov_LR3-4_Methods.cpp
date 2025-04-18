@@ -88,7 +88,6 @@ void createDefaultMinercal() {
     enterString(m_name, "Input the name of the mineral: ")();
     enterDouble(m_density, "Input the density of the mineral: ")();
     
-    std::cout << "Input the hardness list of the mineral: " << std::endl;
     for (int start = 0; start < 3; start++) {
         double hardness = 0.0;
         enterDouble(hardness, "Input the hardness of the mineral: ")();
