@@ -1,5 +1,82 @@
-#include "Chudakov_LR3-4_Methods.h"
 #include <iostream>
+#include <functional>
+#include <vector>
+#include <algorithm>
+#include "Chudakov_LR3-4_ClassMineral.cpp"
+
+
+bool userInput(std::string input) {
+	if (input.empty()) {
+		return false;
+	}
+	try {
+		int lastTry = stoi(input);
+		if (lastTry < 0) {
+			return false;
+		}
+	}
+	catch (...) {
+		return false;
+	}
+	return true;
+}
+
+bool userInputDouble(std::string input) {
+	if (input.empty()) {
+		return false;
+	}
+	try {
+		double lastTry = stod(input);
+		if (lastTry < 0) {
+			return false;
+		}
+	}
+	catch (...) {
+		return false;
+	}
+	return true;
+}
+
+std::function<void()> enterNumber(int& variousLink, std::string label) {
+	return [&variousLink, label]() {
+		std::string rawInput;
+		std::cout << label << " - ";
+		std::getline(std::cin, rawInput);
+
+		while (!userInput(rawInput)) {
+			std::cout << label << " - ";
+			std::getline(std::cin, rawInput);
+		}
+		variousLink = stoi(rawInput);
+		};
+}
+
+std::function<void()> enterDouble(double& variousLink, std::string label) {
+	return [&variousLink, label]() {
+		std::string rawInput;
+		std::cout << label << " - ";
+		std::getline(std::cin, rawInput);
+
+		while (!userInputDouble(rawInput)) {
+			std::cout << label << " - ";
+			std::getline(std::cin, rawInput);
+		}
+		variousLink = stod(rawInput);
+		};
+}
+
+std::function<void()> enterString(std::string& variousLink, std::string label) {
+	return [&variousLink, label]() {
+		std::cout << label << " - ";
+		std::getline(std::cin, variousLink);
+	};
+}
+
+
+
+
+
+
 
 std::vector<Mineral> minerals;
 
@@ -8,17 +85,13 @@ void createDefaultMinercal() {
     double m_density;
     std::vector<double> m_hardness;
 
-    std::cout << "Input the name of the mineral: " << std::endl;
-    std::getline(std::cin, m_name);
-    
-    std::cout << "Input the density of the mineral: " << std::endl;
-    std::cin >> m_density;
+    enterString(m_name, "Input the name of the mineral: ")();
+    enterDouble(m_density, "Input the density of the mineral: ")();
     
     std::cout << "Input the hardness list of the mineral: " << std::endl;
     for (int start = 0; start < 3; start++) {
         double hardness = 0.0;
-        std::cout << "Input the hardness of the mineral: " << std::endl;
-        std::cin >> hardness;
+        enterDouble(hardness, "Input the hardness of the mineral: ")();
         m_hardness.push_back(hardness);
     }
     

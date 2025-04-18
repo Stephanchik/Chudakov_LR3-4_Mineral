@@ -1,7 +1,6 @@
-#include "Chudakov_LR3-4_Methods.h"
 #include <map>
 #include <locale>
-
+#include "Chudakov_LR3-4_Methods.cpp"
 struct MenuItem {
     std::string title;
     void (*action)();
@@ -10,7 +9,7 @@ struct MenuItem {
 int main() {
     setlocale(LC_ALL, "ru");
     std::map<int, MenuItem> menu = {
-        {1, {"Create default mineral", createDefaultMineral}},
+        {1, {"Create default mineral", createDefaultMinercal}},
         {2, {"Create parameterized mineral", createParameterizedMineral}},
         {3, {"Create copy mineral", createCopyMineral}},
         {4, {"Show all minerals", showAllMinerals}},
@@ -24,8 +23,8 @@ int main() {
         for (const auto& item : menu) {
             std::cout << item.first << ". " << item.second.title << std::endl;
         }
-        std::cout << "0. Exit\nEnter choice: ";
-        std::cin >> choice;
+        
+        enterNumber(choice, "0. Exit\nEnter choice: ")();
 
         if (choice == 0) break;
         if (menu.find(choice) != menu.end()) {

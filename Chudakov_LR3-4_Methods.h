@@ -1,7 +1,7 @@
 #ifndef CHUDAKOV_LR3_4_METHODS_H
 #define CHUDAKOV_LR3_4_METHODS_H
 
-#include "Chudakov_LR3-4_ClassMineral.h"
+#include "Chudakov_LR3-4_ClassMineral.cpp"
 #include <vector>
 #include <algorithm>
 
