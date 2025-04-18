@@ -7,9 +7,9 @@
 
 class Mineral {
 private:
-    std::string name;              // Название минерала
-    double density;                // Плотность
-    std::vector<double> hardness_list; // Список твердости
+    std::string name;              
+    double density;                
+    std::vector<double> hardness_list; 
 
 public:
     // Конструкторы
@@ -40,6 +40,8 @@ public:
     Mineral operator++(int);  // Постфиксный инкремент
     friend std::ostream& operator<<(std::ostream& os, const Mineral& m);
     friend std::istream& operator>>(std::istream& is, Mineral& m);
+
+    ~Mineral() = default;
 };
 
 #endif // CHUDAKOV_LR3_4_CLASSMINERAL_H
