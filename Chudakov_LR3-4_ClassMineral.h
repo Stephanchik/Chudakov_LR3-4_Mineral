@@ -34,6 +34,12 @@ public:
 
     // Перегруженные операции
     bool operator==(const Mineral& other) const;
+    bool operator>(const Mineral& other) const;
+    bool operator<(const Mineral& other) const;
+    bool operator!=(const Mineral& other) const;
+    bool operator>=(const Mineral& other) const;
+    bool operator<=(const Mineral& other) const;
+    
     Mineral operator+(const Mineral& other) const;
     Mineral& operator=(const Mineral& other);
     Mineral& operator++();    // Префиксный инкремент (увеличивает плотность)

@@ -1,7 +1,9 @@
 #include <iostream>
 #include <functional>
 #include <vector>
+#include <random>
 #include <algorithm>
+#include <cstdlib>
 #include "Chudakov_LR3-4_ClassMineral.cpp"
 
 
@@ -72,16 +74,43 @@ std::function<void()> enterString(std::string& variousLink, std::string label) {
 	};
 }
 
-
-
-
-
-
-
 std::vector<Mineral> minerals;
 
+//(5) Функция для генерации случайной плотности и твердости
+double fRand(double fMin, double fMax) {
+	double f = (double)rand() / RAND_MAX;
+	return fMin + f * (fMax - fMin);
+}
+
+//(5) Функция для генерации названия случаного минерала методом указателей
+template<typename T>
+T random(std::vector<T> const &vector) {
+	auto it = vector.cbegin();
+	int random = rand() % vector.size();
+	std::advance(it, random);
+
+	return *it;
+}
+
+
 void createDefaultMinercal() {
-    std::string m_name;
+	std::vector<std::string> names = {"Quartz", "Diorite", "Andezit", "Stone", "Gold", "Diamod", "Sapphire"};
+	std::string name = random(names);
+	double density = fRand(5.0, 20.0);
+	std::vector<double> hardness_list = {};
+	for (int start = 0; start < 3; start++) {
+		hardness_list.push_back(fRand(2.0, 15.0));
+	}
+
+	Mineral m(name, density, hardness_list);
+    minerals.push_back(m);
+    std::cout << "Created defolt mineral: " << m << std::endl;
+}
+
+
+
+void createParameterizedMineral() {
+	std::string m_name;
     double m_density;
     std::vector<double> m_hardness;
 
@@ -98,12 +127,6 @@ void createDefaultMinercal() {
     minerals.push_back(m);
 
     std::cout << "Created default mineral: " << m << std::endl;
-}
-
-void createParameterizedMineral() {
-    Mineral m("Quartz", 2.65, {7.0, 7.0, 7.0});
-    minerals.push_back(m);
-    std::cout << "Created parameterized mineral: " << m << std::endl;
 }
 
 void createCopyMineral() {

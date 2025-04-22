@@ -35,6 +35,26 @@ bool Mineral::operator==(const Mineral& other) const {
     return (calculateAverageHardness() == other.calculateAverageHardness());
 }
 
+bool Mineral::operator>(const Mineral& other) const {
+    return (calculateAverageHardness() > other.calculateAverageHardness());
+}
+
+bool Mineral::operator<(const Mineral& other) const {
+    return (calculateAverageHardness() < other.calculateAverageHardness());
+}
+
+bool Mineral::operator!=(const Mineral& other) const {
+    return (calculateAverageHardness() != other.calculateAverageHardness());
+}
+
+bool Mineral::operator>=(const Mineral& other) const {
+    return (calculateAverageHardness() >= other.calculateAverageHardness());
+}
+
+bool Mineral::operator<=(const Mineral& other) const {
+    return (calculateAverageHardness() <= other.calculateAverageHardness());
+}
+
 Mineral Mineral::operator+(const Mineral& other) const {
     std::vector<double> combined_hardness = hardness_list;
     combined_hardness.insert(combined_hardness.end(), other.hardness_list.begin(), other.hardness_list.end());

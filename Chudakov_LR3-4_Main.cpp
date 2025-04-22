@@ -1,12 +1,20 @@
 #include <map>
 #include <locale>
 #include "Chudakov_LR3-4_Methods.cpp"
+//переопределить 6 оператров сравнения
+//продемонстрировать операоры сравнения
+//Рассказать про операторы ++ Mineral& Mineral::operator++()
+//выполнить контроль ввода в cin
+//в конструктор по умолчанию добавить рандомные значения для default mineral (5)
+//void testOperations запрашивать номера элементов при демонстрации операторов
+//демонстрация работы cin - std::istream& operator>>(std::istream& is, Mineral& m)
 struct MenuItem {
     std::string title;
     void (*action)();
 };
 
 int main() {
+    std::srand(std::time(NULL));
     setlocale(LC_ALL, "ru");
     std::map<int, MenuItem> menu = {
         {1, {"Create default mineral", createDefaultMinercal}},
@@ -23,7 +31,7 @@ int main() {
         for (const auto& item : menu) {
             std::cout << item.first << ". " << item.second.title << std::endl;
         }
-        
+
         enterNumber(choice, "0. Exit\nEnter choice: ")();
 
         if (choice == 0) break;
