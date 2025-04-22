@@ -92,7 +92,6 @@ T random(std::vector<T> const &vector) {
 	return *it;
 }
 
-
 void createDefaultMinercal() {
 	std::vector<std::string> names = {"Quartz", "Diorite", "Andezit", "Stone", "Gold", "Diamod", "Sapphire"};
 	std::string name = random(names);
@@ -106,8 +105,6 @@ void createDefaultMinercal() {
     minerals.push_back(m);
     std::cout << "Created defolt mineral: " << m << std::endl;
 }
-
-
 
 void createParameterizedMineral() {
 	std::string m_name;
@@ -130,12 +127,14 @@ void createParameterizedMineral() {
 }
 
 void createCopyMineral() {
-    if (!minerals.empty()) {
-        Mineral m = minerals[0];
+	int index = minerals.size();
+    if (!minerals.empty() || index < minerals.size()) {
+		enterNumber(index, "Выберите порядковый номер минерала, копию которого вы хотите сделать - ")();
+        Mineral m = minerals[index - 1];
         minerals.push_back(m);
         std::cout << "Created copy mineral: " << m << std::endl;
     } else {
-        std::cout << "No minerals to copy!" << std::endl;
+        std::cout << "Нет минералов для копирования или порядковый номнр минерала, копию которого вы хотите сделать не существует..." << std::endl;
     }
 }
 
