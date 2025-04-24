@@ -32,7 +32,7 @@ double Mineral::calculateAverageHardness() const {
 
 // Операторы
 bool Mineral::operator==(const Mineral& other) const {
-    return (calculateAverageHardness() == other.calculateAverageHardness());
+    return (calculateAverageHardness() == other.calculateAverageHardness()); 
 }
 
 bool Mineral::operator>(const Mineral& other) const {
@@ -40,7 +40,7 @@ bool Mineral::operator>(const Mineral& other) const {
 }
 
 bool Mineral::operator<(const Mineral& other) const {
-    return (calculateAverageHardness() < other.calculateAverageHardness());
+    return (calculateAverageHardness() < other.calculateAverageHardness()); 
 }
 
 bool Mineral::operator!=(const Mineral& other) const {
@@ -52,7 +52,7 @@ bool Mineral::operator>=(const Mineral& other) const {
 }
 
 bool Mineral::operator<=(const Mineral& other) const {
-    return (calculateAverageHardness() <= other.calculateAverageHardness());
+    return (calculateAverageHardness() <= other.calculateAverageHardness()); 
 }
 
 Mineral Mineral::operator+(const Mineral& other) const {

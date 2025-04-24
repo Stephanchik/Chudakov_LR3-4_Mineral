@@ -33,12 +33,12 @@ public:
     double calculateAverageHardness() const;
 
     // Перегруженные операции
-    bool operator==(const Mineral& other) const;
-    bool operator>(const Mineral& other) const;
-    bool operator<(const Mineral& other) const;
-    bool operator!=(const Mineral& other) const;
-    bool operator>=(const Mineral& other) const;
-    bool operator<=(const Mineral& other) const;
+    bool operator==(const Mineral& other) const; 
+    bool operator>(const Mineral& other) const; 
+    bool operator<(const Mineral& other) const; 
+    bool operator!=(const Mineral& other) const; 
+    bool operator>=(const Mineral& other) const; 
+    bool operator<=(const Mineral& other) const; 
     
     Mineral operator+(const Mineral& other) const;
     Mineral& operator=(const Mineral& other);

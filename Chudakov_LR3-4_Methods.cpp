@@ -74,7 +74,7 @@ std::function<void()> enterString(std::string& variousLink, std::string label) {
 	};
 }
 
-//(6) Функции для проверки коррекности ввода данных оператора сравнения
+
 bool user_comparison_operator(std::string various_link) {
 	if (various_link == "==" || various_link == "!=" || various_link == ">" || various_link == "<" || various_link == ">=" || various_link == "<=") {
 		return true;
@@ -82,7 +82,6 @@ bool user_comparison_operator(std::string various_link) {
 	return false;
 }
 
-//(6) Функции для проверки коррекности ввода данных оператора сравнения
 std::function<void()> enter_the_сcomparison_operator(std::string& varlink, std::string label) {
 	return [&varlink, label]() {
 		std::string rawinput;
@@ -99,13 +98,11 @@ std::function<void()> enter_the_сcomparison_operator(std::string& varlink, std:
 
 std::vector<Mineral> minerals;
 
-//(5) Функция для генерации случайной плотности и твердости
 double fRand(double fMin, double fMax) {
 	double f = (double)rand() / RAND_MAX;
 	return fMin + f * (fMax - fMin);
 }
 
-//(5) Функция для генерации названия случаного минерала методом указателей
 template<typename T>
 T random(std::vector<T> const &vector) {
 	auto it = vector.cbegin();
@@ -149,7 +146,6 @@ void createParameterizedMineral() {
     std::cout << "Created default mineral: " << m << std::endl;
 }
 
-// Спроектировал выбор минерала для создания копии
 void createCopyMineral() {
     if (!minerals.empty()) {
 		int index = 0;
@@ -181,13 +177,24 @@ void testOperations() {
         std::cout << "Need at least 2 minerals!" << std::endl;
         return;
     }
-    Mineral m1 = minerals[0];
-    Mineral m2 = minerals[1];
+	int index1;
+	enterNumber(index1, "Input the number of the first mineral what you wanna compare")();
+	while (index1 > minerals.size()) {
+		std::cout << "The number of the mineral what you wanna compare does not exist..." << std::endl;
+		enterNumber(index1, "Input the number of the first mineral what you wanna compare")();
+	}
+	int index2;
+	enterNumber(index2, "Input the number of the second mineral what you wanna compare")();
+	while (index2 > minerals.size()) {
+		std::cout << "The number of the mineral what you wanna compare does not exist..." << std::endl;
+		enterNumber(index2, "Input the number of the first mineral what you wanna compare")();
+	}
+    Mineral m1 = minerals[index1 - 1];
+    Mineral m2 = minerals[index2 - 1];
 
 	std::string choice_operation;
 	enter_the_сcomparison_operator(choice_operation, "Input the comparison operator what you wanna apply to")();
 	
-	//(6)
 	if (choice_operation == "==") {
 		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
 		std::cout << "m1 == m2: " << (m1 == m2 ? "true" : "false") << std::endl;
