@@ -178,16 +178,16 @@ void testOperations() {
         return;
     }
 	int index1;
-	enterNumber(index1, "Input the number of the first mineral what you wanna compare")();
+	enterNumber(index1, "Input the number of the first mineral what you wanna compare - ")();
 	while (index1 > minerals.size()) {
 		std::cout << "The number of the mineral what you wanna compare does not exist..." << std::endl;
-		enterNumber(index1, "Input the number of the first mineral what you wanna compare")();
+		enterNumber(index1, "Input the number of the first mineral what you wanna compare - ")();
 	}
 	int index2;
-	enterNumber(index2, "Input the number of the second mineral what you wanna compare")();
+	enterNumber(index2, "Input the number of the second mineral what you wanna compare - ")();
 	while (index2 > minerals.size()) {
 		std::cout << "The number of the mineral what you wanna compare does not exist..." << std::endl;
-		enterNumber(index2, "Input the number of the first mineral what you wanna compare")();
+		enterNumber(index2, "Input the number of the first mineral what you wanna compare - ")();
 	}
     Mineral m1 = minerals[index1 - 1];
     Mineral m2 = minerals[index2 - 1];
