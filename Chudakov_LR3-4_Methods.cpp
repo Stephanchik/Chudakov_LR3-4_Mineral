@@ -93,6 +93,7 @@ std::function<void()> enter_the_сcomparison_operator(std::string& varlink, std:
 			std::cout << label << " - ";
 			std::getline(std::cin, rawinput);
 		}
+		varlink = rawinput;
 	};
 }
 
@@ -202,11 +203,9 @@ void testOperations() {
 	} else if (choice_operation == ">=") {
 		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
 		std::cout << "m1 >= m2: " << (m1 >= m2 ? "true" : "false") << std::endl;
-	} else if (choice_operation == "<="){
+	} else {
 		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
 		std::cout << "m1 <= m2: " << (m1 <= m2 ? "true" : "false") << std::endl;
-	} else {
-		std::cout << "Wrong input!";
 	}
 }
 
