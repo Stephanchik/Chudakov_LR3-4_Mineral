@@ -1,11 +1,11 @@
 #include <map>
 #include <locale>
 #include "Chudakov_LR3-4_Methods.cpp"
-//переопределить 6 оператров сравнения
+//переопределить 6 оператров сравнения *
 //продемонстрировать операоры сравнения
 //Рассказать про операторы ++ Mineral& Mineral::operator++()
 //выполнить контроль ввода в cin
-//в конструктор по умолчанию добавить рандомные значения для default mineral (5)
+//в конструктор по умолчанию добавить рандомные значения для default mineral (5) *
 //void testOperations запрашивать номера элементов при демонстрации операторов
 //демонстрация работы cin - std::istream& operator>>(std::istream& is, Mineral& m)
 struct MenuItem {

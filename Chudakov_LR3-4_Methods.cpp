@@ -74,6 +74,28 @@ std::function<void()> enterString(std::string& variousLink, std::string label) {
 	};
 }
 
+//(6) Функции для проверки коррекности ввода данных оператора сравнения
+bool user_comparison_operator(std::string various_link) {
+	if (various_link == "==" || various_link == "!=" || various_link == ">" || various_link == "<" || various_link == ">=" || various_link == "<=") {
+		return true;
+	}
+	return false;
+}
+
+//(6) Функции для проверки коррекности ввода данных оператора сравнения
+std::function<void()> enter_the_сcomparison_operator(std::string& varlink, std::string label) {
+	return [&varlink, label]() {
+		std::string rawinput;
+		std::cout << label << " - ";
+		std::getline(std::cin, rawinput);
+
+		while(!user_comparison_operator(rawinput)) {
+			std::cout << label << " - ";
+			std::getline(std::cin, rawinput);
+		}
+	};
+}
+
 std::vector<Mineral> minerals;
 
 //(5) Функция для генерации случайной плотности и твердости
@@ -126,6 +148,7 @@ void createParameterizedMineral() {
     std::cout << "Created default mineral: " << m << std::endl;
 }
 
+// Спроектировал выбор минерала для создания копии
 void createCopyMineral() {
     if (!minerals.empty()) {
 		int index = 0;
@@ -159,8 +182,30 @@ void testOperations() {
     }
     Mineral m1 = minerals[0];
     Mineral m2 = minerals[1];
-    std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
-    std::cout << "m1 == m2: " << (m1 == m2 ? "true" : "false") << std::endl;
+
+	std::string choice_operation;
+	enter_the_сcomparison_operator(choice_operation, "Введите оператор сравнения, выбранный вами")();
+	
+	//(6)
+	if (choice_operation == "==") {
+		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
+		std::cout << "m1 == m2: " << (m1 == m2 ? "true" : "false") << std::endl;
+	} else if (choice_operation == "!=") {
+		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
+		std::cout << "m1 != m2: " << (m1 != m2 ? "true" : "false") << std::endl;
+	} else if (choice_operation == ">") {
+		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
+		std::cout << "m1 > m2: " << (m1 > m2 ? "true" : "false") << std::endl;
+	} else if (choice_operation == "<") {
+		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
+		std::cout << "m1 < m2: " << (m1 < m2 ? "true" : "false") << std::endl;
+	} else if (choice_operation == ">=") {
+		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
+		std::cout << "m1 >= m2: " << (m1 >= m2 ? "true" : "false") << std::endl;
+	} else {
+		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
+		std::cout << "m1 <= m2: " << (m1 <= m2 ? "true" : "false") << std::endl;
+	}
 }
 
 void showSortedMinerals() {
