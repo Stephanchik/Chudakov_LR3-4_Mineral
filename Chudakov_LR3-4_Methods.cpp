@@ -128,8 +128,8 @@ void createParameterizedMineral() {
 
 void createCopyMineral() {
 	int index = minerals.size();
-    if (!minerals.empty() || index < minerals.size()) {
-		enterNumber(index, "Выберите порядковый номер минерала, копию которого вы хотите сделать - ")();
+    if (!minerals.empty() && index <= minerals.size()) {
+		enterNumber(index, "Enter the number of the mineral what copy you wanna do - ")();
         Mineral m = minerals[index - 1];
         minerals.push_back(m);
         std::cout << "Created copy mineral: " << m << std::endl;
