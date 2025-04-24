@@ -130,8 +130,7 @@ void createCopyMineral() {
     if (!minerals.empty()) {
 		int index = 0;
 		enterNumber(index, "Enter the number of the mineral what copy you wanna do - ")();
-		
-		while (index < minerals.size()) {
+		while (index > minerals.size()) {
 			std::cout << "The number of the mineral what you wanna copy does not exist..." << std::endl;
 			enterNumber(index, "Enter the number of the mineral what copy you wanna do - ")();
 		}
