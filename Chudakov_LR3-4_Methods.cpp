@@ -184,7 +184,7 @@ void testOperations() {
     Mineral m2 = minerals[1];
 
 	std::string choice_operation;
-	enter_the_сcomparison_operator(choice_operation, "Введите оператор сравнения, выбранный вами")();
+	enter_the_сcomparison_operator(choice_operation, "Input the comparison operator what you wanna apply to")();
 	
 	//(6)
 	if (choice_operation == "==") {
