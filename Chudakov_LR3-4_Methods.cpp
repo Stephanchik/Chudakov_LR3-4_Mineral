@@ -42,11 +42,11 @@ bool userInputDouble(std::string input) {
 std::function<void()> enterNumber(int& variousLink, std::string label) {
 	return [&variousLink, label]() {
 		std::string rawInput;
-		std::cout << label << " - ";
+		std::cout << label;
 		std::getline(std::cin, rawInput);
 
 		while (!userInput(rawInput)) {
-			std::cout << label << " - ";
+			std::cout << label;
 			std::getline(std::cin, rawInput);
 		}
 		variousLink = stoi(rawInput);
@@ -128,8 +128,9 @@ void createParameterizedMineral() {
 
 void createCopyMineral() {
     if (!minerals.empty()) {
-		int index;
+		int index = 0;
 		enterNumber(index, "Enter the number of the mineral what copy you wanna do - ")();
+		
 		while (index < minerals.size()) {
 			std::cout << "The number of the mineral what you wanna copy does not exist..." << std::endl;
 			enterNumber(index, "Enter the number of the mineral what copy you wanna do - ")();
