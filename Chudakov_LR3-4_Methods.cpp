@@ -202,9 +202,11 @@ void testOperations() {
 	} else if (choice_operation == ">=") {
 		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
 		std::cout << "m1 >= m2: " << (m1 >= m2 ? "true" : "false") << std::endl;
-	} else {
+	} else if (choice_operation == "<="){
 		std::cout << "m1 + m2: " << (m1 + m2) << std::endl;
 		std::cout << "m1 <= m2: " << (m1 <= m2 ? "true" : "false") << std::endl;
+	} else {
+		std::cout << "Wrong input!";
 	}
 }
 
