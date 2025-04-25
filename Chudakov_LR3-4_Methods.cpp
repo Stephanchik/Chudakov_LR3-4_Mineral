@@ -166,7 +166,7 @@ void showAllMinerals() {
         std::cout << "No minerals available." << std::endl;
         int choice_action;
 		enterNumber(choice_action, "Choose action: 1 - create reandom mineral, 2 - create parametrized mineral")();
-		while(choice_action != 1 || choice_action != 2) {
+		while(choice_action != 1 && choice_action != 2) {
 			std::cout << "Invalid action" << std::endl;
 			enterNumber(choice_action, "Choose action: 1 - create reandom mineral, 2 - create parametrized mineral")();
 		}
