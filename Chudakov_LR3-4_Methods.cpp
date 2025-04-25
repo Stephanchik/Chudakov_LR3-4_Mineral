@@ -225,3 +225,31 @@ void showSortedMinerals() {
         std::cout << m << " - Avg Hardness: " << m.calculateAverageHardness() << std::endl;
     }
 }
+
+void demonstrateIncriments() {
+//продемонстрировать операторы ++ 
+// Enter numb
+// постфиксаная
+// cout << minarals[numb]
+// cout << minarals[numb]++
+// cout << minarals[numb]
+
+// префиксная
+// cout << minarals[numb]
+// cout << ++minarals[numb]
+	showAllMinerals();
+	int mineral_choice;
+	enterNumber(mineral_choice, "Please choose the mineral what you wanna show the postfix and prefics incriments work on");
+	while (mineral_choice > minerals.size()) {
+		std::cout << "The mineral you wanna choose doesnt exist(" << std::endl;
+		enterNumber(mineral_choice, "Please choose the mineral what you wanna show the postfix and prefics incriments work on");
+	}
+	std::cout << "~~~postfix incriment~~~" << std::endl;
+	std::cout << "Begin object - " << minerals[mineral_choice - 1] << std::endl;
+	std::cout << minerals[mineral_choice - 1].operator++() << std::endl;
+	std::cout << "Final object - " << minerals[mineral_choice - 1] << std::endl;
+
+	std::cout << "~~~prefix incriment~~~" << std::endl;
+	std::cout << "Begin object - " << minerals[mineral_choice - 1] << std::endl;
+	std::cout << "Final object - " << minerals[mineral_choice - 1].operator++(1) << std::endl;
+}

@@ -14,5 +14,6 @@ void createCopyMineral();
 void showAllMinerals();
 void testOperations();
 void showSortedMinerals();
+void demonstrateIncriments();
 
 #endif // CHUDAKOV_LR3_4_METHODS_H

@@ -1,11 +1,10 @@
 #include <map>
 #include <locale>
 #include "Chudakov_LR3-4_Methods.cpp"
-//переопределить 6 оператров сравнения *
-//продемонстрировать операоры сравнения *
-//Рассказать про операторы ++ Mineral& Mineral::operator++() *
-//в конструктор по умолчанию добавить рандомные значения для default mineral *
-//void testOperations запрашивать номера элементов при демонстрации операторов *
+//переопределить 6 оператров сравнения * +
+//продемонстрировать операоры сравнения * +
+//контроль пустого значения для ввода имени минерала
+
 struct MenuItem {
     std::string title;
     void (*action)();
@@ -20,7 +19,8 @@ int main() {
         {3, {"Create copy mineral", createCopyMineral}},
         {4, {"Show all minerals", showAllMinerals}},
         {5, {"Test operations", testOperations}},
-        {6, {"Show sorted minerals", showSortedMinerals}}
+        {6, {"Show sorted minerals", showSortedMinerals}},
+        {7, {"Demonstrate prefix and postfix incriments", demonstrateIncriments}}
     };
 
     int choice;
