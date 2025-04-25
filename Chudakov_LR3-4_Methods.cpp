@@ -69,9 +69,16 @@ std::function<void()> enterDouble(double& variousLink, std::string label) {
 
 std::function<void()> enterString(std::string& variousLink, std::string label) {
 	return [&variousLink, label]() {
-		std::cout << label << " - ";
-		std::getline(std::cin, variousLink);
-	};
+		std::string rawInput;
+		std::cout << label;
+		std::getline(std::cin, rawInput);
+
+		while (!userInput(rawInput)) {
+			std::cout << label;
+			std::getline(std::cin, rawInput);
+		}
+		variousLink = rawInput;
+		};
 }
 
 bool user_comparison_operator(std::string various_link) {
@@ -240,16 +247,6 @@ void showSortedMinerals() {
 }
 
 void demonstrateIncriments() {
-//продемонстрировать операторы ++ 
-// Enter numb
-// постфиксаная
-// cout << minarals[numb]
-// cout << minarals[numb]++
-// cout << minarals[numb]
-
-// префиксная
-// cout << minarals[numb]
-// cout << ++minarals[numb]
 	showAllMinerals();
 	int mineral_choice;
 	enterNumber(mineral_choice, "Please choose the mineral what you wanna show the postfix and prefics incriments work on - ")();
