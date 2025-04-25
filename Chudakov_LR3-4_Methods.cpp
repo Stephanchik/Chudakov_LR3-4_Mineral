@@ -165,10 +165,10 @@ void showAllMinerals() {
     if (minerals.empty()) {
         std::cout << "No minerals available." << std::endl;
         int choice_action;
-		enterNumber(choice_action, "Choose action: 1 - create reandom mineral, 2 - create parametrized mineral")();
+		enterNumber(choice_action, "Choose action: 1 - create reandom mineral, 2 - create parametrized mineral - ")();
 		while(choice_action != 1 && choice_action != 2) {
 			std::cout << "Invalid action" << std::endl;
-			enterNumber(choice_action, "Choose action: 1 - create reandom mineral, 2 - create parametrized mineral")();
+			enterNumber(choice_action, "Choose action: 1 - create reandom mineral, 2 - create parametrized mineral - ")();
 		}
 		switch (choice_action) {
 			case 1:
@@ -252,14 +252,14 @@ void demonstrateIncriments() {
 // cout << ++minarals[numb]
 	showAllMinerals();
 	int mineral_choice;
-	enterNumber(mineral_choice, "Please choose the mineral what you wanna show the postfix and prefics incriments work on")();
+	enterNumber(mineral_choice, "Please choose the mineral what you wanna show the postfix and prefics incriments work on - ")();
 	while (mineral_choice > minerals.size()) {
 		std::cout << "The mineral you wanna choose doesnt exist(" << std::endl;
-		enterNumber(mineral_choice, "Please choose the mineral what you wanna show the postfix and prefics incriments work on")();
+		enterNumber(mineral_choice, "Please choose the mineral what you wanna show the postfix and prefics incriments work on - ")();
 	}
 	std::cout << "~~~postfix incriment~~~" << std::endl;
 	std::cout << "Begin object - " << minerals[mineral_choice - 1] << std::endl;
-	std::cout << minerals[mineral_choice - 1]++ << std::endl;
+	std::cout << "Intermediate result - " << minerals[mineral_choice - 1]++ << std::endl;
 	std::cout << "Final object - " << minerals[mineral_choice - 1] << std::endl;
 
 	std::cout << "~~~prefix incriment~~~" << std::endl;
