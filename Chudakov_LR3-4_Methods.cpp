@@ -259,10 +259,10 @@ void demonstrateIncriments() {
 	}
 	std::cout << "~~~postfix incriment~~~" << std::endl;
 	std::cout << "Begin object - " << minerals[mineral_choice - 1] << std::endl;
-	std::cout << minerals[mineral_choice - 1].operator++() << std::endl;
+	std::cout << minerals[mineral_choice - 1]++ << std::endl;
 	std::cout << "Final object - " << minerals[mineral_choice - 1] << std::endl;
 
 	std::cout << "~~~prefix incriment~~~" << std::endl;
 	std::cout << "Begin object - " << minerals[mineral_choice - 1] << std::endl;
-	std::cout << "Final object - " << minerals[mineral_choice - 1].operator++(1) << std::endl;
+	std::cout << "Final object - " << ++minerals[mineral_choice - 1] << std::endl;
 }
