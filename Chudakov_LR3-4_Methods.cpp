@@ -74,7 +74,6 @@ std::function<void()> enterString(std::string& variousLink, std::string label) {
 	};
 }
 
-
 bool user_comparison_operator(std::string various_link) {
 	if (various_link == "==" || various_link == "!=" || various_link == ">" || various_link == "<" || various_link == ">=" || various_link == "<=") {
 		return true;
@@ -165,7 +164,12 @@ void createCopyMineral() {
 void showAllMinerals() {
     if (minerals.empty()) {
         std::cout << "No minerals available." << std::endl;
-        return;
+        int choice_action;
+		enterNumber(choice_action, "Choose action: 1 - create reandom mineral, 2 - create parametrized mineral");
+		while(choice_action != 1 || choice_action != 2) {
+			std::cout << "Invalid action" << std::endl;
+			enterNumber(choice_action, "Choose action: 1 - create reandom mineral, 2 - create parametrized mineral");
+		}
     }
     for (const auto& m : minerals) {
         std::cout << m << " - Avg Hardness: " << m.calculateAverageHardness() << std::endl;
