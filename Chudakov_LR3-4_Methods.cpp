@@ -170,6 +170,15 @@ void showAllMinerals() {
 			std::cout << "Invalid action" << std::endl;
 			enterNumber(choice_action, "Choose action: 1 - create reandom mineral, 2 - create parametrized mineral");
 		}
+		switch (choice_action) {
+			case 1:
+				createDefaultMinercal();
+				break;
+
+			case 2:
+				createParameterizedMineral();
+				break;
+		}
     }
     for (const auto& m : minerals) {
         std::cout << m << " - Avg Hardness: " << m.calculateAverageHardness() << std::endl;
