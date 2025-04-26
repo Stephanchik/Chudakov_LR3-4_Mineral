@@ -2,8 +2,6 @@
 #include <locale>
 #include "Chudakov_LR3-4_Methods.cpp"
 
-//контроль пустого значения для ввода имени минерала
-
 struct MenuItem {
     std::string title;
     void (*action)();
